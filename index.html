@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="index.js"></script>
-  </head>
-  <body>
-    <h1 class="header">Abulfatov Ruslan</h1>
-    <h2>P3132 variant: 3201 | itmo-web1</h2>
-    <canvas id="graph" width="300" height="300">
-      <img
-        src="./static/task_graph.png"
-        alt="Task grpah"
-        width="300"
-        height="300"
-      />
-    </canvas>
-    <button onclick="onClick()">click me</button>
-    <script src="grapher.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <h1 class="header">Abulfatov Ruslan</h1>
+  <h2>P32312 variant: 3201 | itmo-web1</h2>
+  <canvas id="graph" width="300" height="300">
+    <img src="./static/task_graph.png" alt="Task grpah" width="300" height="300" />
+  </canvas>
+  <!-- элемент, содержащий текст, при нажатии на который меняется фокус на другой элемент -->
+  <div>
+    <label for="x">X:</label>
+    <input id="x" type="text"/>
+  </div>
+  <div>
+    <label for="y">Y:</label>
+    <select id="y">
+      <option></option>
+      <option>-2</option>
+      <option>-1.5</option>
+      <option>-1</option>
+      <option>-0.5</option>
+      <option>0</option>
+      <option>0.5</option>
+      <option>1</option>
+      <option>1.5</option>
+      <option>2</option>
+    </select>
+  </div>
+  <div>
+    <label for="r">R:</label>
+    <select id="r">
+      <option></option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <button onclick="checkPoint()">check point</button>
+  <script src="grapher.js"></script>
+</body>
+
 </html>
