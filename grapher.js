@@ -4,27 +4,18 @@ const width = canvas.width;
 const height = canvas.height;
 const ctx = canvas.getContext('2d');
 
-const THEME_COLOR = '#8338ec80';
+const THEME_COLOR = '#567efb';
 
 function drawGraph() {
-    ctx.font = '10px monospace';
+    ctx.font = '13px sans-serif';
     ctx.fillStyle = '#FFF';
     ctx.fillRect(0, 0, width, height);
 
     ctx.fillStyle = THEME_COLOR;
-    // 1st quadrant circle
+    // 1st quadrant triangle
     ctx.beginPath();
-    ctx.arc(width/2, height/2, width/6, 0, -Math.PI/2, true);
-    ctx.lineTo(width/2, height/2);
-    ctx.fill();
-
-    // 2nd quadrant square
-    ctx.fillRect(width/6, 2*height/6, 2*width/6, height/6);
-
-    // 4th quadrant triangle
-    ctx.beginPath();
-    ctx.moveTo(width/2, 5*height/6);
-    ctx.lineTo(4*width/6, height/2);
+    ctx.moveTo(width/2, height/6);
+    ctx.lineTo(5*width/6, height/2);
     ctx.lineTo(width/2, height/2);
     ctx.fill();
 
@@ -43,6 +34,15 @@ function drawGraph() {
     ctx.moveTo(width/2, 0);
     ctx.lineTo(width/2+10, 10);
     ctx.stroke();
+
+    // 2nd quadrant sector
+    ctx.beginPath();
+    ctx.arc(width/2, height/2, width/3, -1.58, Math.PI, true);
+    ctx.lineTo(width/2, height/2);
+    ctx.fill();
+
+    // 4th quadrant rectangle
+    ctx.fillRect(width/2, 3*height/6, width/6, height/3);
 
     ctx.fillStyle = '#000';
     const labels = ['-R', '-R/2', '', 'R/2', 'R'];
