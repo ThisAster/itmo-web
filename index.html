@@ -13,17 +13,21 @@
 <body>
   <h1 class="header">Abulfatov Ruslan</h1>
   <h2>P32312 variant: 3201 | itmo-web1</h2>
+  <hr>
+  <center>
   <canvas id="graph" width="300" height="300">
     <img src="./static/task_graph.png" alt="Task grpah" width="300" height="300" />
   </canvas>
+</center>
   <!-- элемент, содержащий текст, при нажатии на который меняется фокус на другой элемент -->
+  <center>
   <div>
     <label for="x">X:</label>
-    <input id="x" type="text"/>
+    <input title="укажите значение x" id="x" type="text"/>
   </div>
   <div>
     <label for="y">Y:</label>
-    <select id="y">
+    <select title="укажите значение y" id="y">
       <option></option>
       <option>-2</option>
       <option>-1.5</option>
@@ -38,7 +42,7 @@
   </div>
   <div>
     <label for="r">R:</label>
-    <select id="r">
+    <select title="укажите значение r" id="r">
       <option></option>
       <option>1</option>
       <option>2</option>
@@ -49,6 +53,7 @@
   </div>
   <button onclick="checkPoint()">check point</button>
   <script src="grapher.js"></script>
+</center>
 </body>
 
 </html>
