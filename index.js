@@ -51,31 +51,31 @@ async function checkPoint() {
 // TODO: needs to be completed
 function validateData(data) {
   if (!data.x) {
-    return "x не задан.";
+    return "x not a defined.";
   }
   if (!data.y) {
-    return "y не задан.";
+    return "y not a defined.";
   }
   if (!data.r) {
-    return "r не задан.";
+    return "r not a defined.";
   }
 
   if (isNaN(data.x)) {
-    return "x не число.";
+    return "x not a number.";
   }
   if (isNaN(data.y)) {
-    return "y не число.";
+    return "y not a number.";
   }
   if (isNaN(data.r)) {
-    return "r не число.";
+    return "r not a number.";
   }
 
   if (data.x < -5) {
-    return "x должен быть больше (или равен) -5";
+    return "x must be greater than (or equal to) -5";
   }
 
   if (data.x > 5) {
-    return "x должен быть меньше (или равен) 5";
+    return "x must be less than (or equal to) 5";
   }
 
   return null;
