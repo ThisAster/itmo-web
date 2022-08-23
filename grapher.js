@@ -5,8 +5,8 @@ function runGrapher(parameters) {
   const height = canvas.height;
   const ctx = canvas.getContext("2d");
 
-  const FIGURE_COLOR = "#567efb";
-  const POINT_COLOR = "#32CF1677";
+  const FIGURE_COLOR = "#567efb99";
+  const POINT_COLOR = "#4A76FE99";
   function drawGraph() {
     ctx.font = "13px sans-serif";
     ctx.fillStyle = "#FFF";
