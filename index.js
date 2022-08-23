@@ -53,19 +53,23 @@ function validateData(data) {
   if (!data.x) {
     return "x not a defined.";
   }
-  if (!data.y) {
-    return "y not a defined.";
-  }
-  if (!data.r) {
-    return "r not a defined.";
-  }
 
   if (isNaN(data.x)) {
     return "x not a number.";
   }
+
+  if (!data.y) {
+    return "y not a defined.";
+  }
+
   if (isNaN(data.y)) {
     return "y not a number.";
   }
+  
+  if (!data.r) {
+    return "r not a defined.";
+  }
+
   if (isNaN(data.r)) {
     return "r not a number.";
   }
