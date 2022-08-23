@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/superagent@8.0.0/dist/superagent.min.js"></script>
   <script src="index.js"></script>
 </head>
+
 <body>
   <table>
     <tr>
@@ -28,8 +29,7 @@
           <div id="xBlock">
             <!-- элемент, содержащий текст, при нажатии на который меняется фокус на другой элемент -->
             <label for="x">X:</label>
-            <input title="enter a value x" class="inputX" id="x" type="text" placeholder="range from -5 to 5"
-              maxlength="8" />
+            <input title="enter a value x" class="inputX" id="x" type="text" placeholder="range from -5 to 5" maxlength="8" />
           </div>
           <div id="yTable">
             <label for="y">Y:</label>

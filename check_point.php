@@ -53,4 +53,3 @@
         // Redirect back to home page
         echo $hit;
     }
-?>

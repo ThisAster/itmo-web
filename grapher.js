@@ -6,7 +6,7 @@ function runGrapher(parameters) {
   const ctx = canvas.getContext("2d");
 
   const FIGURE_COLOR = "#567efb";
-  const POINT_COLOR = '#32CF1677';
+  const POINT_COLOR = "#32CF1677";
   function drawGraph() {
     ctx.font = "13px sans-serif";
     ctx.fillStyle = "#FFF";
@@ -64,7 +64,7 @@ function runGrapher(parameters) {
       ctx.textBaseline = "middle";
       ctx.fillText(labels[i - 1], width / 2 + 7, height - (i * height) / 6);
     }
-   
+
     const r = parameters.r;
     const points = [];
     points.forEach((v, index) => {
@@ -92,14 +92,15 @@ function runGrapher(parameters) {
   //document.getElementById("form").onchange = drawGraph;
 
   canvas.onmousedown = (e) => {
-    
     if (!r) {
       alert("Please select a value for R first");
       return;
     }
 
-    const xClicked = Math.round(((2 * e.offsetX) / width - 1) * r * 1.5 * 100) / 100;
-    const yClicked = Math.round(((-2 * e.offsetY) / height + 1) * r * 1.5 * 100) / 100;
+    const xClicked =
+      Math.round(((2 * e.offsetX) / width - 1) * r * 1.5 * 100) / 100;
+    const yClicked =
+      Math.round(((-2 * e.offsetY) / height + 1) * r * 1.5 * 100) / 100;
 
     const xInput = document.getElementById("x");
     xInput.value = xClicked;

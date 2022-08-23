@@ -2,7 +2,6 @@ body > table {
   width: 80%;
 }
 
-
 /* селектор потомков */
 table button {
   width: 50px;
@@ -49,7 +48,7 @@ div > label {
   color: rgba(0, 0, 0, 0.75);
 }
 
-#parameters{
+#parameters {
   margin-left: 20%;
   margin-right: 20%;
 }
@@ -140,7 +139,6 @@ canvas#graph {
   margin-left: 20%;
 }
 
-
 #results {
   padding: 1%;
   border-collapse: collapse;
@@ -156,4 +154,3 @@ canvas#graph {
   border: solid 1px black;
   text-align: center;
 }
-
