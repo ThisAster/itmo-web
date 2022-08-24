@@ -154,3 +154,7 @@ canvas#graph {
   border: solid 1px black;
   text-align: center;
 }
+
+.active {
+  border: green 3px solid;
+}
