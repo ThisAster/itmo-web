@@ -85,10 +85,20 @@ function validateData(data) {
   return null;
 }
 
-function getData() {
+function getX(){
   const xInput = document.getElementById("x");
+  return xInput.value;
+}
+
+function setX(newValue){
+  const xInput = document.getElementById("x");
+  xInput.value = newValue
+}
+
+
+function getData() {
   const data = {
-    x: xInput.value,
+    x: getX(),
     y: y,
     r: r,
   };
@@ -117,21 +127,21 @@ function onHeaderLeave() {
 }
 
 async function getCheckPointResult() {
-  return new Promise((r) =>
-    setTimeout(() => {
-      r(true);
-    }, 200)
-  );
+  // return new Promise((resolve) =>
+  //   setTimeout(() => {
+  //     resolve(true);
+  //   }, 200)
+  // );
 
   try {
     attemptsMade++;
-    const res = await superagent.get("/check_point.php").send({
-      x: x,
+    const res = await superagent.get("/check_point.php").query({
+      x: getX(),
       y: y,
       r: r,
     });
     console.log(res);
-    return res;
+    return res.body.hit;
   } catch (err) {
     console.error(err);
   }

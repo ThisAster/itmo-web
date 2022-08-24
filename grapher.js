@@ -102,10 +102,8 @@ function runGrapher(parameters) {
     const yClicked =
       Math.round(((-2 * e.offsetY) / height + 1) * r * 1.5 * 100) / 100;
 
-    const xInput = document.getElementById("x");
-    xInput.value = xClicked;
-
-    y = yClicked;
+    setX(xClicked);
+    setY(yClicked);
     checkPoint();
   };
 }

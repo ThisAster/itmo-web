@@ -1,13 +1,14 @@
 <?php
+    header('Content-Type: application/json; charset=utf-8');
     $start_time = hrtime(true);
-
-    if (!(isset($_POST['x']) && isset($_POST['y']) && isset($_POST['r']))) {
+ 
+    if (!(isset($_GET['x']) && isset($_GET['y']) && isset($_GET['r']))) {
         echo 'Not enough parameters';
         http_response_code(400);
     } else {
-        $x = floatval($_POST['x']);
-        $y = floatval($_POST['y']);
-        $r = floatval($_POST['r']);
+        $x = floatval($_GET['x']);
+        $y = floatval($_GET['y']);
+        $r = floatval($_GET['r']);
 
         $hit = false;
 
@@ -15,7 +16,7 @@
             if ($y >= 0) {
                 // Circle with radius r/2
                 $rr = sqrt($x*$x + $y*$y);
-                $hit = $rr <= $r/2;
+                $hit = $rr <= $r;
             } else {
                 $hit = false;
             }
@@ -50,6 +51,5 @@
             array_push($_SESSION['attempts'], $attempt);
         }
 
-        // Redirect back to home page
-        echo $hit;
+        echo json_encode($attempt);
     }
