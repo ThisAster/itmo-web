@@ -36,35 +36,35 @@
             <table title="enter a value y" id="y">
               <tr>
                 <td>
-                  <button onclick="setY(-2)">-2</button>
+                  <button onClick="setY(-2, this)">-2</button>
                 </td>
                 <td>
-                  <button onclick="setY(-1.5)">-1.5</button>
+                  <button onClick="setY(-1.5, this)">-1.5</button>
                 </td>
                 <td>
-                  <button onclick="setY(-1)">-1</button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <button onclick="setY(-0.5)">-0.5</button>
-                </td>
-                <td>
-                  <button onclick="setY(0)">0</button>
-                </td>
-                <td>
-                  <button onclick="setY(0.5)">0.5</button>
+                  <button onClick="setY(-1, this)">-1</button>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <button onclick="setY(1)">1</button>
+                  <button onClick="setY(-0.5, this)">-0.5</button>
                 </td>
                 <td>
-                  <button onclick="setY(1.5)">1.5</button>
+                  <button onClick="setY(0, this)">0</button>
                 </td>
                 <td>
-                  <button onclick="setY(2)">2</button>
+                  <button onClick="setY(0.5, this)">0.5</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button onClick="setY(1, this)">1</button>
+                </td>
+                <td>
+                  <button onClick="setY(1.5, this)">1.5</button>
+                </td>
+                <td>
+                  <button onClick="setY(2, this)">2</button>
                 </td>
               </tr>
             </table>
