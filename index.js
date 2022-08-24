@@ -105,9 +105,16 @@ function getData() {
   return data;
 }
 
+
+function setActiveButton(parameter, element){
+  console.log(parameter);
+  console.log(element);
+}
+
 let y = null;
-function setY(newValue) {
+function setY(newValue, element) {
   y = newValue;
+  setActiveButton('y', element)
 }
 
 let r = null;
