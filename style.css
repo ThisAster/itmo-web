@@ -1,3 +1,7 @@
+body {
+  background-image: url(./static/r.png);
+}
+
 body > table {
   width: 80%;
 }
@@ -129,7 +133,6 @@ td > canvas {
 }
 
 body {
-  background: coral;
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
@@ -157,4 +160,44 @@ canvas#graph {
 
 .active {
   border: green 3px solid;
+}
+
+:root {
+  font-size: 14px;
+}
+
+
+
+header {
+  font-family: monospace;
+  background-color: var(--secondary-background-color);
+  overflow: hidden;
+}
+
+header:hover h2::after {
+  color: var(--secondary-text-color);
+}
+
+header h2::after {
+  color: transparent;
+  content: " | ITMO, Saint-Petersburg 2022";
+  transition-property: color;
+  transition-duration: 0.5s;
+}
+
+header:hover h1, header:hover h2 {
+  transform: translateX(50px)
+}
+
+header h1 {
+  font-size: 40px;
+  color: var(--primary-text-color);
+  transition-property: transform;
+  transition-duration: 0.5s;
+}
+
+header h2 {
+  font-size: 35px;
+  color: var(--secondary-text-color);
+  transition-duration: 0.3s;
 }

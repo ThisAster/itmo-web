@@ -16,11 +16,14 @@
   <table>
     <tr>
       <td colspan="2">
-        <div onmouseover="onHeaderOver()" onmouseleave="onHeaderLeave()">
-          <h1>Abulfatov Ruslan</h1>
-          <h2 style="background-color: green;" id="groupNumber">P32312, var: 3201</h2>
+          <header>
+            <h1>
+              <span>Abulfatov</span>
+              Ruslan
+            </h1>
+            <h2>P32312, var: 3201</h2>
+          </header>
         </div>
-        <hr>
       </td>
     </tr>
     <tr>
@@ -136,6 +139,7 @@
       </td>
     </tr>
   </table>
+  <img style="margin-left: 40%;" src="./static/VeC.gif" alt="">
   <!--   <table>
     <tr>
       <td colspan="" rowspan="">

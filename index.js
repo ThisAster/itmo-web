@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let attemptsMade = 0;
 
-// TODO: needs to be completed
 async function checkPoint() {
   const data = getData();
   const errorMessage = validateData(data);
@@ -48,7 +47,7 @@ async function checkPoint() {
   // alert(JSON.stringify(data));
 }
 
-// TODO: needs to be completed
+
 function validateData(data) {
   if (!data.x) {
     return "x not a defined.";
@@ -122,7 +121,7 @@ function setR(newValue) {
   r = newValue;
 }
 
-function onHeaderOver() {
+/* function onHeaderOver() {
   const groupNumberElement = document.getElementById("groupNumber");
   groupNumberElement.style.backgroundColor = "red";
   groupNumberElement.style.transform = "translateX(10px)";
@@ -131,7 +130,7 @@ function onHeaderOver() {
 function onHeaderLeave() {
   const groupNumberElement = document.getElementById("groupNumber");
   groupNumberElement.style.backgroundColor = "green";
-}
+} */
 
 async function getCheckPointResult() {
   // return new Promise((resolve) =>
