@@ -108,7 +108,7 @@ td > canvas {
 }
 
 /* селектор классов */
-.checkPointButton {
+.actionButton {
   display: flex;
   align-items: center;
   justify-content: center;

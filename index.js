@@ -16,7 +16,8 @@ async function checkPoint() {
   }
 
   const resultsTable = document.getElementById("results");
-  const newRow = resultsTable.insertRow();
+  const tableBody = resultsTable.getElementsByTagName("tbody")[0];
+  const newRow = tableBody.insertRow();
 
   const attemptNumberCell = newRow.insertCell();
   attemptNumberCell.innerHTML = attemptsMade.toString();
@@ -47,6 +48,11 @@ async function checkPoint() {
   // alert(JSON.stringify(data));
 }
 
+function clean(){
+  const resultsTable = document.getElementById("results");
+  const tableBody = resultsTable.getElementsByTagName("tbody")[0];
+  tableBody.innerHTML = "";
+}
 
 function validateData(data) {
   if (!data.x) {

@@ -12,7 +12,7 @@
   <script src="index.js"></script>
 </head>
 
-<body style="background-image: url(./static/r.png); background-size: cover; background-position: fixed;">
+<body style="background-image: url(./static/r.png); background-size: cover; background-position: fixed; height: 100vh;">
   <table>
     <tr>
       <td colspan="2">
@@ -96,7 +96,14 @@
               </tr>
             </table>
           </div>
-          <button class="checkPointButton" onclick="checkPoint()">check point</button>
+          <div>
+            <button class="actionButton" onclick="checkPoint()">check point</button>
+          </div>
+          
+          <div>
+            <button class="actionButton" onclick="clean()">clean</button>
+          </div>
+          
         </div>
       </td>
       <td style="border: 1px solid #555; border-radius: 8px; box-shadow: 0 10px 10px #0003; margin-bottom: 2rem; width: 400px;">
@@ -111,7 +118,7 @@
       <td colspan="2" style="padding: 1%;">
         <div id="result">
           <table id="results">
-            <tr>
+            <thead>
               <th>
                 Attempt #
               </th>
@@ -133,13 +140,19 @@
               <th>
                 Processing time
               </th>
-            </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
           </table>
         </div>
       </td>
     </tr>
   </table>
-  <img style="margin-left: 40%;" src="./static/VeC.gif">
+  <img style="margin-left: 50%;
+    position: absolute;
+    top: 65%;
+    z-index: -1;" src="./static/VeC.gif">
   <!--   <table>
     <tr>
       <td colspan="" rowspan="">
