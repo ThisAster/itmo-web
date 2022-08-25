@@ -51,6 +51,7 @@ async function checkPoint() {
 function clean(){
   const resultsTable = document.getElementById("results");
   const tableBody = resultsTable.getElementsByTagName("tbody")[0];
+  attemptsMade = 0;
   tableBody.innerHTML = "";
 }
 
