@@ -12,17 +12,17 @@
   <script src="index.js"></script>
 </head>
 
-<body>
+<body style="background-image: url(./static/r.png); background-size: cover; background-position: fixed;">
   <table>
     <tr>
       <td colspan="2">
-          <header>
-            <h1>
-              <span>Abulfatov</span>
-              Ruslan
-            </h1>
-            <h2>P32312, var: 3201</h2>
-          </header>
+        <header>
+          <h1>
+            <span>Abulfatov</span>
+            Ruslan
+          </h1>
+          <h2>P32312, var: 3201</h2>
+        </header>
         </div>
       </td>
     </tr>
@@ -99,10 +99,10 @@
           <button class="checkPointButton" onclick="checkPoint()">check point</button>
         </div>
       </td>
-      <td>
-        <canvas id="graph" width="300" height="300">
+      <td style="border: 1px solid #555; border-radius: 8px; box-shadow: 0 10px 10px #0003; margin-bottom: 2rem; width: 400px;">
+        <canvas style="margin-left: 6.4%;" id="graph" width="350" height="350">
           <span>
-            <img src="./static/task_graph.png" alt="Task grpah" width="300" height="300" />
+            <img src="./static/task_graph.png" alt="Task grpah" width="350" height="350" />
           </span>
         </canvas>
       </td>
@@ -139,11 +139,10 @@
       </td>
     </tr>
   </table>
-  <img style="margin-left: 40%;" src="./static/VeC.gif" alt="">
+  <img style="margin-left: 40%;" src="./static/VeC.gif">
   <!--   <table>
     <tr>
       <td colspan="" rowspan="">
-
       </td>
     </tr>
     <tr>
@@ -152,8 +151,6 @@
       </td>
     </tr>
   </table> -->
-
-
 </body>
 
 </html>
