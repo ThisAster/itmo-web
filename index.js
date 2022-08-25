@@ -63,12 +63,13 @@ function validateData(data) {
     return "x not a number.";
   }
 
-  if (!data.y) {
-    return "y not a defined.";
-  }
 
   if (isNaN(data.y)) {
     return "y not a number.";
+  }
+
+  if (data.y === undefined) {
+    return "y not a defined.";
   }
   
   if (!data.r) {
@@ -117,18 +118,21 @@ function setActiveButton(parameter, element){
   for(const button of buttons){
     button.className = '';
   }
-  element.className = 'active';
+  if(element){
+    element.className = 'active';
+  }
 }
 
 let y = null;
 function setY(newValue, element) {
   y = newValue;
-  setActiveButton('y', element)
+  setActiveButton('y', element);
 }
 
 let r = null;
-function setR(newValue) {
+function setR(newValue, element) {
   r = newValue;
+  setActiveButton('r', element);
 }
 
 /* function onHeaderOver() {

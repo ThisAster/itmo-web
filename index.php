@@ -79,21 +79,21 @@
             <table title="enter a value r" id="r">
               <tr>
                 <td>
-                  <button onclick="setR(1)">1</button>
+                  <button onClick="setR(1, this)">1</button>
                 </td>
                 <td>
-                  <button onclick="setR(2)">2</button>
+                  <button onClick="setR(2, this)">2</button>
                 </td>
                 <td>
-                  <button onclick="setR(3)">3</button>
+                  <button onClick="setR(3, this)">3</button>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <button onclick="setR(4)">4</button>
+                  <button onClick="setR(4, this)">4</button>
                 </td>
                 <td>
-                  <button onclick="setR(5)">5</button>
+                  <button onClick="setR(5, this)">5</button>
                 </td>
               </tr>
             </table>
@@ -101,16 +101,16 @@
           <div>
             <button class="actionButton" onclick="checkPoint()">check point</button>
           </div>
-          
+
           <div>
             <button class="actionButton" onclick="clean()">clean</button>
           </div>
-          
+
         </div>
       </td>
       <td style="width: 400px;">
         <div class="bordered canvasContainer">
-          <canvas  style="margin-left: 6.4%;" id="graph" width="350" height="350">
+          <canvas style="margin-left: 6.4%;" id="graph" width="350" height="350">
             <span>
               <img src="./static/task_graph.png" alt="Task grpah" width="350" height="350" />
             </span>
@@ -118,34 +118,34 @@
         </div>
       </td>
       <td>
-      <table id="results">
-            <thead>
-              <th>
-                Attempt #
-              </th>
-              <th>
-                X
-              </th>
-              <th>
-                Y
-              </th>
-              <th>
-                R
-              </th>
-              <th>
-                Result
-              </th>
-              <th style="width: 185px">
-                Attempt time
-              </th>
-              <th>
-                Processing time
-              </th>
-            </thead>
-            <tbody>
+        <table id="results">
+          <thead>
+            <th>
+              Attempt #
+            </th>
+            <th>
+              X
+            </th>
+            <th>
+              Y
+            </th>
+            <th>
+              R
+            </th>
+            <th>
+              Result
+            </th>
+            <th style="width: 185px">
+              Attempt time
+            </th>
+            <th>
+              Processing time
+            </th>
+          </thead>
+          <tbody>
 
-            </tbody>
-          </table>
+          </tbody>
+        </table>
       </td>
     </tr>
   </table>

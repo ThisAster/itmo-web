@@ -154,7 +154,8 @@ body {
 /* анимация для шапки */
 
 header {
-  font-family: monospace;
+  font-family: sans-serif;
+  color: #393949;
   background-color: var(--secondary-background-color);
   overflow: hidden;
 }
