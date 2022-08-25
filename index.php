@@ -15,7 +15,7 @@
 <body style="background-image: url(./static/r.png); background-size: cover; background-position: fixed; height: 100vh;">
   <table>
     <tr>
-      <td colspan="2">
+      <td colspan="3">
         <header>
           <h1>
             <span>Abulfatov</span>
@@ -108,18 +108,17 @@
           
         </div>
       </td>
-      <td class="bordered" style="width: 400px;">
-        <canvas style="margin-left: 6.4%;" id="graph" width="350" height="350">
-          <span>
-            <img src="./static/task_graph.png" alt="Task grpah" width="350" height="350" />
-          </span>
-        </canvas>
+      <td style="width: 400px;">
+        <div class="bordered canvasContainer">
+          <canvas  style="margin-left: 6.4%;" id="graph" width="350" height="350">
+            <span>
+              <img src="./static/task_graph.png" alt="Task grpah" width="350" height="350" />
+            </span>
+          </canvas>
+        </div>
       </td>
-    </tr>
-    <tr>
-      <td colspan="2" style="padding: 1%;">
-        <div id="result">
-          <table id="results">
+      <td>
+      <table id="results">
             <thead>
               <th>
                 Attempt #
@@ -147,7 +146,6 @@
 
             </tbody>
           </table>
-        </div>
       </td>
     </tr>
   </table>
