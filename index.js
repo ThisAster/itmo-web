@@ -48,7 +48,7 @@ async function checkPoint() {
   // alert(JSON.stringify(data));
 }
 
-function clean(){
+function clean() {
   const resultsTable = document.getElementById("results");
   const tableBody = resultsTable.getElementsByTagName("tbody")[0];
   attemptsMade = 0;
@@ -64,7 +64,6 @@ function validateData(data) {
     return "x not a number.";
   }
 
-
   if (isNaN(data.y)) {
     return "y not a number.";
   }
@@ -72,7 +71,7 @@ function validateData(data) {
   if (!data.y && data.y == null) {
     return "y not a defined.";
   }
-  
+
   if (!data.r) {
     return "r not a defined.";
   }
@@ -92,16 +91,15 @@ function validateData(data) {
   return null;
 }
 
-function getX(){
+function getX() {
   const xInput = document.getElementById("x");
   return xInput.value;
 }
 
-function setX(newValue){
+function setX(newValue) {
   const xInput = document.getElementById("x");
-  xInput.value = newValue
+  xInput.value = newValue;
 }
-
 
 function getData() {
   const data = {
@@ -112,28 +110,27 @@ function getData() {
   return data;
 }
 
-
-function setActiveButton(parameter, element){
+function setActiveButton(parameter, element) {
   const parameterElement = document.getElementById(parameter);
-  const buttons = parameterElement.getElementsByTagName("button")
-  for(const button of buttons){
-    button.className = '';
+  const buttons = parameterElement.getElementsByTagName("button");
+  for (const button of buttons) {
+    button.className = "";
   }
-  if(element){
-    element.className = 'active';
+  if (element) {
+    element.className = "active";
   }
 }
 
 let y = null;
 function setY(newValue, element) {
   y = newValue;
-  setActiveButton('y', element)
+  setActiveButton("y", element);
 }
 
 let r = null;
 function setR(newValue, element) {
   r = newValue;
-  setActiveButton('r', element);
+  setActiveButton("r", element);
 }
 
 /* function onHeaderOver() {
