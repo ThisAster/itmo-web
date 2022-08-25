@@ -69,7 +69,7 @@ function validateData(data) {
     return "y not a number.";
   }
 
-  if (data.y === undefined) {
+  if (!data.y && data.y == null) {
     return "y not a defined.";
   }
   
@@ -127,7 +127,7 @@ function setActiveButton(parameter, element){
 let y = null;
 function setY(newValue, element) {
   y = newValue;
-  setActiveButton('y', element);
+  setActiveButton('y', element)
 }
 
 let r = null;
