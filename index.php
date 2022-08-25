@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <td>
-        <div id="parameters">
+        <div id="parameters" class="bordered">
           <div id="xBlock">
             <!-- элемент, содержащий текст, при нажатии на который меняется фокус на другой элемент -->
             <label for="x">X:</label>
@@ -108,7 +108,7 @@
           
         </div>
       </td>
-      <td style="border: 1px solid #555; border-radius: 8px; box-shadow: 0 10px 10px #0003; margin-bottom: 2rem; width: 400px;">
+      <td class="bordered" style="width: 400px;">
         <canvas style="margin-left: 6.4%;" id="graph" width="350" height="350">
           <span>
             <img src="./static/task_graph.png" alt="Task grpah" width="350" height="350" />

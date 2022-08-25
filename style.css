@@ -51,6 +51,8 @@ div > label {
 #parameters {
   margin-left: 20%;
   margin-right: 20%;
+  padding: 40px;
+  width: 175px;
 }
 
 /* id селектор */
@@ -126,6 +128,7 @@ body {
 #results {
   padding: 1%;
   border-collapse: collapse;
+  background-color: #ffffffCC;
 }
 
 #results th {
@@ -183,4 +186,9 @@ header h2 {
   transition-duration: 0.3s;
 }
 
+.bordered {
+  border: 1px solid #555;
+  border-radius: 8px;
+  box-shadow: 0 10px 10px #0003;
+}
 /* ----------------------------------------- */
