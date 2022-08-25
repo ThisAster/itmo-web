@@ -109,7 +109,7 @@
       </td>
       <td style="width: 400px;">
         <div class="bordered canvasContainer">
-          <canvas style="margin-left: 6.4%;" id="graph" width="350" height="350">
+          <canvas style="margin-left: 4.4%;" id="graph" width="350" height="350">
             <span>
               <img src="./static/task_graph.png" alt="Task grpah" width="350" height="350" />
             </span>
