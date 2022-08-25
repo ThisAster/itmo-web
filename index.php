@@ -117,7 +117,7 @@
         </div>
       </td>
       <td>
-        <table id="results">
+        <table id="results" style="width: 128%;">
           <thead>
             <th>
               Attempt #
