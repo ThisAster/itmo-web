@@ -80,10 +80,6 @@ label[for="r"] {
   color: rgba(0, 0, 0, 0.75);
 }
 
-/* селектор атрибутов */
-table[title="enter a value r"] {
-}
-
 /* // ------------------------- */
 
 /* селектор дочерних элементов */
@@ -196,3 +192,17 @@ header h2 {
   padding-right: 20px;
 }
 /* ----------------------------------------- */
+
+@media screen and (max-width: 600px) {
+  :root {
+      font-size: 10px;
+  }
+
+  .panel, #form-panel {
+      width: 100%;
+  }
+
+  .main {
+      width: 90%;
+  }
+}
