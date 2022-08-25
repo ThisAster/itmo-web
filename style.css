@@ -55,7 +55,6 @@ div > label {
 
 /* id селектор */
 #x {
-  width: 120%;
   background: -moz-linear-gradient(#d0ecf4, #5bc9e1, #d0ecf4);
   background: -webkit-gradient(
     linear,
@@ -68,17 +67,8 @@ div > label {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
   border: 2px solid;
   border-radius: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding: 10%;
-  padding-top: 1%;
-  padding-right: 1%;
-  padding-bottom: 1%;
-  padding-left: 1%;
-  padding: 4%;
-  width: 150px;
+  padding: 10px;
+  width: 138px;
 }
 
 /* // --------------------------- */
@@ -97,7 +87,6 @@ label[for="r"] {
 
 /* селектор атрибутов */
 table[title="enter a value r"] {
-  margin-top: 9%;
 }
 
 /* // ------------------------- */

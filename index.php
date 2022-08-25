@@ -32,7 +32,9 @@
           <div id="xBlock">
             <!-- элемент, содержащий текст, при нажатии на который меняется фокус на другой элемент -->
             <label for="x">X:</label>
-            <input title="enter a value x" class="inputX" id="x" type="text" placeholder="range from -5 to 5" maxlength="8" />
+            <div>
+              <input title="enter a value x" class="inputX" id="x" type="text" placeholder="range from -5 to 5" maxlength="8" />
+            </div>
           </div>
           <div id="yTable">
             <label for="y">Y:</label>
@@ -142,7 +144,7 @@
               </th>
             </thead>
             <tbody>
-              
+
             </tbody>
           </table>
         </div>
