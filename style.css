@@ -193,16 +193,18 @@ header h2 {
 }
 /* ----------------------------------------- */
 
-@media screen and (max-width: 600px) {
-  :root {
-      font-size: 10px;
+@media screen and (max-width: 1280px) {
+  div.contentblock {
+    width: 1200px;
   }
-
-  .panel, #form-panel {
-      width: 100%;
+}
+@media screen and (max-width: 1140px) {
+  div.contentblock {
+    width: 1024px;
   }
-
-  .main {
-      width: 90%;
+}
+@media screen and (max-width: 992px) {
+  div.contentblock {
+    width: 970px;
   }
 }
