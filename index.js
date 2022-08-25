@@ -112,8 +112,12 @@ function getData() {
 
 
 function setActiveButton(parameter, element){
-  console.log(parameter);
-  console.log(element);
+  const parameterElement = document.getElementById(parameter);
+  const buttons = parameterElement.getElementsByTagName("button")
+  for(const button of buttons){
+    button.className = '';
+  }
+  element.className = 'active';
 }
 
 let y = null;
