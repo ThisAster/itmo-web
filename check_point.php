@@ -10,6 +10,34 @@ if (!(isset($_GET['x']) && isset($_GET['y']) && isset($_GET['r']))) {
     $y = floatval($_GET['y']);
     $r = floatval($_GET['r']);
 
+    if ($x > 5 && $x < -5) {
+        echo 'Introduced into the wrong x value';
+        http_response_code(400);
+    }
+
+    if (!is_numeric($x)) {
+        echo 'x is NaN';
+        http_response_code(400);
+    }
+
+    if ($y > 2 && $y < -2) {
+        echo 'Introduced into the wrong y value';
+        http_response_code(400);
+    }
+
+    if (!is_numeric($y)) {
+        echo 'y is NaN';
+        http_response_code(400);
+    }
+
+    if ($r > 5 && $r < 1) {
+        echo 'Introduced into the wrong r value';http_response_code(400);
+    }
+
+    if (!is_numeric($r)) {
+        echo 'r in NaN';http_response_code(400);
+    }
+
     $hit = false;
 
     if ($x < 0) {
