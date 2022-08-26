@@ -150,10 +150,7 @@
       </td>
     </tr>
   </table>
-  <img style="margin-left: 50%;
-    position: absolute;
-    top: 65%;
-    z-index: -1;" src="./static/VeC.gif">
+  <img class="cat" src="./static/VeC.gif">
   <!--   <table>
     <tr>
       <td colspan="" rowspan="">
