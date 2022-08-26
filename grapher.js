@@ -110,9 +110,18 @@ function runGrapher() {
     'green',
     'yellow',
     'orange',
+    '#26D272',
+    '#AF33BF',
+    '#E31AA0',
+    '#960D3C',
+    '#D8E122',
+    '#A91E0E',
+    '#00FFD3',
+    '#7700FF',
+    '#780852'
   ];
   function addPoint(x, y){
-    const colorIndex = getRandomInt(0, 4);
+    const colorIndex = getRandomInt(0, 13);
     const color = pointColors[colorIndex];
     const newPoint = {
       x,
