@@ -1,5 +1,8 @@
 /** @type {HTMLCanvasElement} */
-function runGrapher(parameters) {
+
+
+
+function runGrapher() {
   const canvas = document.getElementById("graph");
   const width = canvas.width;
   const height = canvas.height;
@@ -7,6 +10,8 @@ function runGrapher(parameters) {
 
   const FIGURE_COLOR = "#567efb99";
   const POINT_COLOR = "#4A76FE99";
+  const points = [];
+
   function drawGraph() {
     ctx.font = "13px sans-serif";
     ctx.fillStyle = "#FFF";
@@ -65,13 +70,13 @@ function runGrapher(parameters) {
       ctx.fillText(labels[i - 1], width / 2 + 7, height - (i * height) / 6);
     }
 
-    const r = parameters.r;
-    const points = [];
-    points.forEach((v, index) => {
-      const x = ((v.x / r) * width) / 3 + width / 2;
-      const y = ((-v.y / r) * height) / 3 + height / 2;
+    const r = getR();
 
-      ctx.fillStyle = v.color;
+    points.forEach((point, index) => {
+      const x = ((point.x / r) * width) / 3 + width / 2;
+      const y = ((-point.y / r) * height) / 3 + height / 2;
+
+      ctx.fillStyle = point.color;
       ctx.beginPath();
       ctx.arc(x, y, 5, 0, Math.PI * 2);
       ctx.fill();
@@ -79,6 +84,8 @@ function runGrapher(parameters) {
   }
 
   drawGraph();
+
+   
 
   canvas.onmousemove = (e) => {
     drawGraph();
@@ -90,6 +97,34 @@ function runGrapher(parameters) {
 
   canvas.onmouseleave = drawGraph;
   //document.getElementById("form").onchange = drawGraph;
+
+
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+  }
+  const pointColors = [
+    'red',
+    'green',
+    'yellow',
+    'orange',
+  ];
+  function addPoint(x, y){
+    const colorIndex = getRandomInt(0, 4);
+    const color = pointColors[colorIndex];
+    const newPoint = {
+      x,
+      y,
+      color
+    };
+    points.push(newPoint);
+  }
+
+  function cleanPoints(){
+    points.length = 0;
+  }
 
   canvas.onmousedown = (e) => {
     if (!r) {
@@ -104,6 +139,14 @@ function runGrapher(parameters) {
 
     setX(xClicked);
     setY(yClicked);
+    addPoint(xClicked, yClicked);
+    points.push
+
     checkPoint();
   };
+
+  return {
+    cleanPoints,
+    drawGraph
+  }
 }

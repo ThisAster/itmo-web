@@ -1,7 +1,9 @@
+
+let grapher = null;
+
 document.addEventListener("DOMContentLoaded", function () {
   // Аналог $(document).ready(function(){
-  const parameters = getData();
-  runGrapher(parameters);
+  grapher = runGrapher();
 });
 
 let attemptsMade = 0;
@@ -53,6 +55,8 @@ function clean() {
   const tableBody = resultsTable.getElementsByTagName("tbody")[0];
   attemptsMade = 0;
   tableBody.innerHTML = "";
+  grapher.cleanPoints();
+  grapher.drawGraph();
 }
 
 function validateData(data) {
@@ -131,6 +135,9 @@ let r = null;
 function setR(newValue, element) {
   r = newValue;
   setActiveButton("r", element);
+}
+function getR(){
+  return r;
 }
 
 /* function onHeaderOver() {
