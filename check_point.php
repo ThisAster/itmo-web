@@ -35,7 +35,8 @@ if (!(isset($_GET['x']) && isset($_GET['y']) && isset($_GET['r']))) {
     }
 
     if (!is_numeric($r)) {
-        echo 'r in NaN';http_response_code(400);
+        echo 'r in NaN';
+        http_response_code(400);
     }
 
     $hit = false;
