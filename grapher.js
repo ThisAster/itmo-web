@@ -1,7 +1,5 @@
 /** @type {HTMLCanvasElement} */
 
-
-
 function runGrapher() {
   const canvas = document.getElementById("graph");
   const width = canvas.width;
@@ -85,8 +83,6 @@ function runGrapher() {
 
   drawGraph();
 
-   
-
   canvas.onmousemove = (e) => {
     drawGraph();
     ctx.fillStyle = POINT_COLOR;
@@ -98,40 +94,38 @@ function runGrapher() {
   canvas.onmouseleave = drawGraph;
   //document.getElementById("form").onchange = drawGraph;
 
-
-
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
   }
   const pointColors = [
-    'red',
-    'green',
-    'yellow',
-    'orange',
-    '#26D272',
-    '#AF33BF',
-    '#E31AA0',
-    '#960D3C',
-    '#D8E122',
-    '#A91E0E',
-    '#00FFD3',
-    '#7700FF',
-    '#780852'
+    "red",
+    "green",
+    "yellow",
+    "orange",
+    "#26D272",
+    "#AF33BF",
+    "#E31AA0",
+    "#960D3C",
+    "#D8E122",
+    "#A91E0E",
+    "#00FFD3",
+    "#7700FF",
+    "#780852",
   ];
-  function addPoint(x, y){
+  function addPoint(x, y) {
     const colorIndex = getRandomInt(0, 13);
     const color = pointColors[colorIndex];
     const newPoint = {
       x,
       y,
-      color
+      color,
     };
     points.push(newPoint);
   }
 
-  function cleanPoints(){
+  function cleanPoints() {
     points.length = 0;
   }
 
@@ -149,13 +143,13 @@ function runGrapher() {
     setX(xClicked);
     setY(yClicked);
     addPoint(xClicked, yClicked);
-    points.push
+    points.push;
 
     checkPoint();
   };
 
   return {
     cleanPoints,
-    drawGraph
-  }
+    drawGraph,
+  };
 }
