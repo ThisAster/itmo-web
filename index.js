@@ -96,7 +96,7 @@ function validateData(data) {
 
 function getX() {
   const xInput = document.getElementById("x");
-  return xInput.value;
+  return xInput.value.trim();
 }
 
 function setX(newValue) {
