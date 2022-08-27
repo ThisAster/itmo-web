@@ -68,12 +68,12 @@ function validateData(data) {
     return "x not a number.";
   }
 
-  if (isNaN(data.y)) {
-    return "y not a number.";
-  }
-
   if (!data.y && data.y == null) {
     return "y not a defined.";
+  }
+
+  if (isNaN(data.y)) {
+    return "y not a number.";
   }
 
   if (!data.r) {
@@ -169,5 +169,6 @@ async function getCheckPointResult() {
     return res.body.hit;
   } catch (err) {
     console.error(err);
+    return 'error';
   }
 }

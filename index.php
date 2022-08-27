@@ -34,84 +34,83 @@ session_start();
     <tr>
       <td>
         <div id="parameters" class="bordered">
-          <form id="form" action="/check_point.php" method="get">
-            <div id="xBlock">
-              <!-- элемент, содержащий текст, при нажатии на который меняется фокус на другой элемент -->
-              <label for="x">X:</label>
-              <div>
-                <input title="enter a value x" class="inputX" id="x" type="text" placeholder="range from -5 to 5" maxlength="8" />
-              </div>
-            </div>
-            <div id="yTable">
-              <label for="y">Y:</label>
-              <table title="enter a value y" id="y">
-                <tr>
-                  <td>
-                    <button onClick="setY(-2, this)">-2</button>
-                  </td>
-                  <td>
-                    <button onClick="setY(-1.5, this)">-1.5</button>
-                  </td>
-                  <td>
-                    <button onClick="setY(-1, this)">-1</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <button onClick="setY(-0.5, this)">-0.5</button>
-                  </td>
-                  <td>
-                    <button onClick="setY(0, this)">0</button>
-                  </td>
-                  <td>
-                    <button onClick="setY(0.5, this)">0.5</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <button onClick="setY(1, this)">1</button>
-                  </td>
-                  <td>
-                    <button onClick="setY(1.5, this)">1.5</button>
-                  </td>
-                  <td>
-                    <button onClick="setY(2, this)">2</button>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="rBlock">
-              <label id="labelR" for="r">R:</label>
-              <table title="enter a value r" id="r">
-                <tr>
-                  <td>
-                    <button onClick="setR(1, this)">1</button>
-                  </td>
-                  <td>
-                    <button onClick="setR(2, this)">2</button>
-                  </td>
-                  <td>
-                    <button onClick="setR(3, this)">3</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <button onClick="setR(4, this)">4</button>
-                  </td>
-                  <td>
-                    <button onClick="setR(5, this)">5</button>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div>
-              <button class="actionButton" onclick="checkPoint()">check point</button>
-          </form>
-        </div>
 
-        <div>
-          <button class="actionButton" onclick="clean()">clean</button>
-        </div>
+          <div id="xBlock">
+            <!-- элемент, содержащий текст, при нажатии на который меняется фокус на другой элемент -->
+            <label for="x">X:</label>
+            <div>
+              <input title="enter a value x" class="inputX" id="x" type="text" placeholder="range from -5 to 5" maxlength="8" />
+            </div>
+          </div>
+          <div id="yTable">
+            <label for="y">Y:</label>
+            <table title="enter a value y" id="y">
+              <tr>
+                <td>
+                  <button onClick="setY(-2, this)">-2</button>
+                </td>
+                <td>
+                  <button onClick="setY(-1.5, this)">-1.5</button>
+                </td>
+                <td>
+                  <button onClick="setY(-1, this)">-1</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button onClick="setY(-0.5, this)">-0.5</button>
+                </td>
+                <td>
+                  <button onClick="setY(0, this)">0</button>
+                </td>
+                <td>
+                  <button onClick="setY(0.5, this)">0.5</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button onClick="setY(1, this)">1</button>
+                </td>
+                <td>
+                  <button onClick="setY(1.5, this)">1.5</button>
+                </td>
+                <td>
+                  <button onClick="setY(2, this)">2</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div id="rBlock">
+            <label id="labelR" for="r">R:</label>
+            <table title="enter a value r" id="r">
+              <tr>
+                <td>
+                  <button onClick="setR(1, this)">1</button>
+                </td>
+                <td>
+                  <button onClick="setR(2, this)">2</button>
+                </td>
+                <td>
+                  <button onClick="setR(3, this)">3</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button onClick="setR(4, this)">4</button>
+                </td>
+                <td>
+                  <button onClick="setR(5, this)">5</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div>
+            <button class="actionButton" onclick="checkPoint()">check point</button>
+          </div>
+
+          <div>
+            <button class="actionButton" onclick="clean()">clean</button>
+          </div>
 
         </div>
       </td>
