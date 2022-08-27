@@ -6,9 +6,25 @@ if (!(isset($_GET['x']) && isset($_GET['y']) && isset($_GET['r']))) {
     echo 'Not enough parameters';
     http_response_code(422);
 } else {
-    $x = floatval($_GET['x']);
-    $y = floatval($_GET['y']);
-    $r = floatval($_GET['r']);
+    if ($x <= 5 && $x >= -5 && is_numeric($x)) {
+        $x = $_GET['x'];
+    } else {
+        echo 'Invalid x value';
+        http_response_code(422);
+    }
+    if ($y <= 2 && $y >= -2 && is_numeric($y)) {
+        $y = $_GET['y'];
+    } else {
+        echo 'Invalid y value';
+        http_response_code(422);
+    }
+
+    if ($r <=5 && $r >=1 && is_numeric($r)) {
+        $r = $_GET['r'];
+    } else {
+        echo 'Invalid r value';
+        http_response_code(422);
+    }
 
     $hit = false;
 
