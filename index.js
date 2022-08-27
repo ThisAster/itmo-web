@@ -1,4 +1,3 @@
-
 let grapher = null;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -136,7 +135,7 @@ function setR(newValue, element) {
   r = newValue;
   setActiveButton("r", element);
 }
-function getR(){
+function getR() {
   return r;
 }
 
@@ -145,7 +144,6 @@ function getR(){
   groupNumberElement.style.backgroundColor = "red";
   groupNumberElement.style.transform = "translateX(10px)";
 }
-
 function onHeaderLeave() {
   const groupNumberElement = document.getElementById("groupNumber");
   groupNumberElement.style.backgroundColor = "green";
@@ -169,6 +167,6 @@ async function getCheckPointResult() {
     return res.body.hit;
   } catch (err) {
     console.error(err);
-    return 'error';
+    return "error";
   }
 }
