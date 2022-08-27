@@ -4,7 +4,7 @@ $start_time = hrtime(true);
 
 if (!(isset($_GET['x']) && isset($_GET['y']) && isset($_GET['r']))) {
     echo 'Not enough parameters';
-    http_response_code(400);
+    http_response_code(422);
 } else {
     $x = floatval($_GET['x']);
     $y = floatval($_GET['y']);
