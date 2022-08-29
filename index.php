@@ -105,7 +105,7 @@ session_start();
             </table>
           </div>
           <div>
-            <button class="actionButton" onclick="checkPoint()">check point</button>
+            <button id="check" class="actionButton" onclick="checkPoint()">check point</button>
           </div>
 
           <div>
@@ -125,26 +125,26 @@ session_start();
       </td>
       <td>
         <table id="results" style="width: 128%;">
-          <thead>
-            <th>
+          <thead id="thead">
+            <th id="attemptRow">
               Attempt #
             </th>
-            <th>
+            <th id="xRow">
               X
             </th>
-            <th>
+            <th id="yRow">
               Y
             </th>
-            <th>
+            <th id="rRow">
               R
             </th>
-            <th>
+            <th id="resultRow">
               Result
             </th>
-            <th style="width: 185px">
+            <th id="attempttimeRow" style="width: 185px">
               Attempt time
             </th>
-            <th>
+            <th id="processingtimeRow">
               Processing time
             </th>
           </thead>

@@ -19,8 +19,8 @@ async function checkPoint() {
   const resultsTable = document.getElementById("results");
   const tableBody = resultsTable.getElementsByTagName("tbody")[0];
   const newRow = tableBody.insertRow();
-
   const attemptNumberCell = newRow.insertCell();
+
   attemptNumberCell.innerHTML = attemptsMade.toString();
 
   const xCell = newRow.insertCell();
@@ -47,13 +47,14 @@ async function checkPoint() {
   processingTimeCell.innerHTML = responseTimeMs + " ms";
 
   // alert(JSON.stringify(data));
-}
+  }
 
 function clean() {
   const resultsTable = document.getElementById("results");
   const tableBody = resultsTable.getElementsByTagName("tbody")[0];
   attemptsMade = 0;
   tableBody.innerHTML = "";
+  localStorage.clear();
   grapher.cleanPoints();
   grapher.drawGraph();
 }
@@ -164,6 +165,14 @@ async function getCheckPointResult() {
       r: r,
     });
     console.log(res);
+    localStorage.setItem("1dd67bc30438cd" + localStorage.length, JSON.stringify(res.body))
+    for (let i = 0; i < localStorage.length; i++) {
+      try {
+        createTableRow(localStorage.getItem("1dd67bc30438cd" + i));
+      } catch (TypeError) {
+        console.log(":)");
+      }
+    }
     return res.body.hit;
   } catch (err) {
     console.error(err);
