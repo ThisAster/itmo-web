@@ -9,6 +9,8 @@ let attemptsMade = 0;
 
 async function checkPoint() {
   const data = getData();
+  const dataTable = {}
+
   const errorMessage = validateData(data);
 
   if (errorMessage) {
@@ -19,17 +21,21 @@ async function checkPoint() {
   const resultsTable = document.getElementById("results");
   const tableBody = resultsTable.getElementsByTagName("tbody")[0];
   const newRow = tableBody.insertRow();
-  const attemptNumberCell = newRow.insertCell();
 
+  const attemptNumberCell = newRow.insertCell();
+  dataTable.attemptNumber = attemptsMade;
   attemptNumberCell.innerHTML = attemptsMade.toString();
 
   const xCell = newRow.insertCell();
+  dataTable.x = data.x;
   xCell.innerHTML = data.x.toString();
 
   const yCell = newRow.insertCell();
+  dataTable.y = data.y;
   yCell.innerHTML = data.y.toString();
 
   const rCell = newRow.insertCell();
+  dataTable.r = data.r;
   rCell.innerHTML = data.r.toString();
 
   const sendDate = new Date().getTime();
@@ -37,17 +43,19 @@ async function checkPoint() {
 
   const resultCell = newRow.insertCell();
   resultCell.innerHTML = checkResult.toString();
+  dataTable.result = checkResult;
   const receiveDate = new Date().getTime();
 
   const attemptTimeCell = newRow.insertCell();
   attemptTimeCell.innerHTML = new Date().toISOString();
+  dataTable.attemptTime = new Date().toISOString();
 
   const responseTimeMs = receiveDate - sendDate;
   const processingTimeCell = newRow.insertCell();
-  processingTimeCell.innerHTML = responseTimeMs + " ms";
-
-  // alert(JSON.stringify(data));
-  }
+  processingTimeCell.innerHTML = responseTimeMs + " ms"; 
+  dataTable.processingTime = responseTimeMs + " ms";
+  localStorage.setItem("1dd67bc30438cd" + localStorage.length, JSON.stringify(dataTable));
+}
 
 function clean() {
   const resultsTable = document.getElementById("results");
@@ -165,14 +173,6 @@ async function getCheckPointResult() {
       r: r,
     });
     console.log(res);
-    localStorage.setItem("1dd67bc30438cd" + localStorage.length, JSON.stringify(res.body))
-    for (let i = 0; i < localStorage.length; i++) {
-      try {
-        createTableRow(localStorage.getItem("1dd67bc30438cd" + i));
-      } catch (TypeError) {
-        console.log(":)");
-      }
-    }
     return res.body.hit;
   } catch (err) {
     console.error(err);
