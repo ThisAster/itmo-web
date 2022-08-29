@@ -22,39 +22,43 @@ async function checkPoint() {
   const tableBody = resultsTable.getElementsByTagName("tbody")[0];
   const newRow = tableBody.insertRow();
 
-  const attemptNumberCell = newRow.insertCell();
   dataTable.attemptNumber = attemptsMade;
-  attemptNumberCell.innerHTML = attemptsMade.toString();
 
-  const xCell = newRow.insertCell();
-  dataTable.x = data.x;
-  xCell.innerHTML = data.x.toString();
+  dataTable.x = data.x.toString();
 
-  const yCell = newRow.insertCell();
-  dataTable.y = data.y;
-  yCell.innerHTML = data.y.toString();
+  dataTable.y = data.y.toString();
 
-  const rCell = newRow.insertCell();
-  dataTable.r = data.r;
-  rCell.innerHTML = data.r.toString();
+  dataTable.r = data.r.toString();
 
   const sendDate = new Date().getTime();
   const checkResult = await getCheckPointResult();
 
-  const resultCell = newRow.insertCell();
-  resultCell.innerHTML = checkResult.toString();
   dataTable.result = checkResult;
   const receiveDate = new Date().getTime();
 
-  const attemptTimeCell = newRow.insertCell();
-  attemptTimeCell.innerHTML = new Date().toISOString();
   dataTable.attemptTime = new Date().toISOString();
 
   const responseTimeMs = receiveDate - sendDate;
-  const processingTimeCell = newRow.insertCell();
-  processingTimeCell.innerHTML = responseTimeMs + " ms"; 
   dataTable.processingTime = responseTimeMs + " ms";
   localStorage.setItem("1dd67bc30438cd" + localStorage.length, JSON.stringify(dataTable));
+  const attemptNumberCell = newRow.insertCell();
+  const xCell = newRow.insertCell();
+  const yCell = newRow.insertCell();
+  const rCell = newRow.insertCell();
+  const resultCell = newRow.insertCell();
+  const attemptTimeCell = newRow.insertCell();
+  const processingTimeCell = newRow.insertCell();
+  for (var i = 0; i < localStorage.length; i++) {
+    var item = localStorage.getItem("1dd67bc30438cd" + i, JSON.stringify(dataTable))
+  }
+  let objTable = JSON.parse(item);
+  attemptNumberCell.innerHTML = objTable["attemptNumber"];
+  xCell.innerHTML = objTable["x"];
+  yCell.innerHTML = objTable["y"];
+  rCell.innerHTML = objTable["r"];
+  resultCell.innerHTML = objTable["result"];
+  attemptTimeCell.innerHTML = objTable["attemptTime"];
+  processingTimeCell.innerHTML = objTable["processingTime"];
 }
 
 function clean() {
