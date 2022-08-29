@@ -9,7 +9,7 @@ let attemptsMade = 0;
 
 async function checkPoint() {
   const data = getData();
-  const dataTable = {}
+  const dataTable = {};
 
   const errorMessage = validateData(data);
 
@@ -40,7 +40,10 @@ async function checkPoint() {
 
   const responseTimeMs = receiveDate - sendDate;
   dataTable.processingTime = responseTimeMs + " ms";
-  localStorage.setItem("1dd67bc30438cd" + localStorage.length, JSON.stringify(dataTable));
+  localStorage.setItem(
+    "1dd67bc30438cd" + localStorage.length,
+    JSON.stringify(dataTable)
+  );
   const attemptNumberCell = newRow.insertCell();
   const xCell = newRow.insertCell();
   const yCell = newRow.insertCell();
@@ -49,7 +52,10 @@ async function checkPoint() {
   const attemptTimeCell = newRow.insertCell();
   const processingTimeCell = newRow.insertCell();
   for (var i = 0; i < localStorage.length; i++) {
-    var item = localStorage.getItem("1dd67bc30438cd" + i, JSON.stringify(dataTable))
+    var item = localStorage.getItem(
+      "1dd67bc30438cd" + i,
+      JSON.stringify(dataTable)
+    );
   }
   let objTable = JSON.parse(item);
   attemptNumberCell.innerHTML = objTable["attemptNumber"];
