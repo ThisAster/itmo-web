@@ -1,44 +1,50 @@
 let grapher = null;
-let dataTable = {};
 let attemptsMade = 0;
-
+const cacheKey = "result_entry_";
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Аналог $(document).ready(function(){
+  loadDataFromLocalStorage();
+  grapher = runGrapher();
+});
+
+
+function addEntry(entry){
+  try {
+    const resultsTable = document.getElementById("results");
+    const tableBody = resultsTable.getElementsByTagName("tbody")[0];
+    const newRow = tableBody.insertRow();
+    const attemptNumberCell = newRow.insertCell();
+    const xCell = newRow.insertCell();
+    const yCell = newRow.insertCell();
+    const rCell = newRow.insertCell();
+    const resultCell = newRow.insertCell();
+    const attemptTimeCell = newRow.insertCell();
+    const processingTimeCell = newRow.insertCell();
+
+    
+    attemptNumberCell.innerHTML = entry["attemptNumber"];
+    xCell.innerHTML = entry["x"];
+    yCell.innerHTML = entry["y"];
+    rCell.innerHTML = entry["r"];
+    resultCell.innerHTML = entry["result"];
+    attemptTimeCell.innerHTML = entry["attemptTime"];
+    processingTimeCell.innerHTML = entry["processingTime"];
+    attemptsMade = Number(entry["attemptNumber"]) + 1;
+  } catch (TypeError) {
+    console.log(":)");
+  }
+}
+
+function loadDataFromLocalStorage(){
   if (localStorage.length == 0 && attemptsMade == 0) {
   } else {
     for (var i = 0; i < localStorage.length; i++) {
-      try {
-        const resultsTable = document.getElementById("results");
-        const tableBody = resultsTable.getElementsByTagName("tbody")[0];
-        const newRow = tableBody.insertRow();
-        const attemptNumberCell = newRow.insertCell();
-        const xCell = newRow.insertCell();
-        const yCell = newRow.insertCell();
-        const rCell = newRow.insertCell();
-        const resultCell = newRow.insertCell();
-        const attemptTimeCell = newRow.insertCell();
-        const processingTimeCell = newRow.insertCell();
-        let item2 = localStorage.getItem(
-          "1dd67bc30438cd" + i,
-          JSON.stringify(dataTable)
-        );
-        let objTable2 = JSON.parse(item2);
-        attemptNumberCell.innerHTML = objTable2["attemptNumber"];
-        xCell.innerHTML = objTable2["x"];
-        yCell.innerHTML = objTable2["y"];
-        rCell.innerHTML = objTable2["r"];
-        resultCell.innerHTML = objTable2["result"];
-        attemptTimeCell.innerHTML = objTable2["attemptTime"];
-        processingTimeCell.innerHTML = objTable2["processingTime"];
-        attemptsMade = Number(objTable2["attemptNumber"]) + 1;
-      } catch (TypeError) {
-        console.log(":)");
-      }
+      const cachedEntryString = localStorage.getItem(cacheKey + i);
+      const cachedEntry = JSON.parse(cachedEntryString);
+      addEntry(cachedEntry);
     }
   }
-  grapher = runGrapher();
-});
+}
 
 async function checkPoint() {
   const data = getData();
@@ -54,50 +60,32 @@ async function checkPoint() {
   const tableBody = resultsTable.getElementsByTagName("tbody")[0];
   const newRow = tableBody.insertRow();
 
-  dataTable.attemptNumber = attemptsMade;
+  const dataEntry = {};
+  dataEntry.attemptNumber = attemptsMade;
 
-  dataTable.x = data.x.toString();
+  dataEntry.x = data.x.toString();
 
-  dataTable.y = data.y.toString();
+  dataEntry.y = data.y.toString();
 
-  dataTable.r = data.r.toString();
+  dataEntry.r = data.r.toString();
 
   const sendDate = new Date().getTime();
   const checkResult = await getCheckPointResult();
 
-  dataTable.result = checkResult;
+  dataEntry.result = checkResult;
   const receiveDate = new Date().getTime();
 
-  dataTable.attemptTime = new Date().toISOString();
+  dataEntry.attemptTime = new Date().toISOString();
 
   const responseTimeMs = receiveDate - sendDate;
-  dataTable.processingTime = responseTimeMs + " ms";
+  dataEntry.processingTime = responseTimeMs + " ms";
+
+  addEntry(dataEntry);
+
   localStorage.setItem(
-    "1dd67bc30438cd" + localStorage.length,
-    JSON.stringify(dataTable)
+    cacheKey + localStorage.length,
+    JSON.stringify(dataEntry)
   );
-  const attemptNumberCell = newRow.insertCell();
-  const xCell = newRow.insertCell();
-  const yCell = newRow.insertCell();
-  const rCell = newRow.insertCell();
-  const resultCell = newRow.insertCell();
-  const attemptTimeCell = newRow.insertCell();
-  const processingTimeCell = newRow.insertCell();
-  for (var i = 0; i < localStorage.length; i++) {
-    var item = localStorage.getItem(
-      "1dd67bc30438cd" + i,
-      JSON.stringify(dataTable)
-    );
-  }
-  let objTable = JSON.parse(item);
-  attemptNumberCell.innerHTML = objTable["attemptNumber"];
-  xCell.innerHTML = objTable["x"];
-  yCell.innerHTML = objTable["y"];
-  rCell.innerHTML = objTable["r"];
-  resultCell.innerHTML = objTable["result"];
-  attemptTimeCell.innerHTML = objTable["attemptTime"];
-  processingTimeCell.innerHTML = objTable["processingTime"];
-  dataTable.attemptNumber++;
 }
 
 function clean() {
