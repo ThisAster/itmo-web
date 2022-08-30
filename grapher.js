@@ -142,8 +142,8 @@ function runGrapher() {
 
     setX(xClicked);
     setY(yClicked);
-    /* TODO: доделать, чтобы при перезагрузке страницы сохранялись точки на графике в локальном хранилище */
-  /* addPoint(xClicked, yClicked); */
+    /* TODO: need will add save points on graph after reload page */
+    /* addPoint(xClicked, yClicked); */
     points.push;
 
     checkPoint();
