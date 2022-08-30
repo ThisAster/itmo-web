@@ -3,10 +3,9 @@ let dataTable = {};
 let attemptsMade = 0;
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
   // Аналог $(document).ready(function(){
-  if (localStorage.length == 0) {
+  if (localStorage.length == 0 && attemptsMade == 0) {
   } else {
     for (var i = 0; i < localStorage.length; i++) {
       try {
@@ -32,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultCell.innerHTML = objTable2["result"];
         attemptTimeCell.innerHTML = objTable2["attemptTime"];
         processingTimeCell.innerHTML = objTable2["processingTime"];
+        attemptsMade = Number(objTable2["attemptNumber"]) + 1;
       } catch (TypeError) {
         console.log(":)");
       }
@@ -97,6 +97,7 @@ async function checkPoint() {
   resultCell.innerHTML = objTable["result"];
   attemptTimeCell.innerHTML = objTable["attemptTime"];
   processingTimeCell.innerHTML = objTable["processingTime"];
+  dataTable.attemptNumber++;
 }
 
 function clean() {
