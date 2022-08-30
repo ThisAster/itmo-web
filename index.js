@@ -1,15 +1,47 @@
 let grapher = null;
+let dataTable = {};
+let attemptsMade = localStorage.setItem("stor", 0);
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Аналог $(document).ready(function(){
+  if (localStorage.length == 0) {
+  } else {
+    for (var i = 0; i < localStorage.length; i++) {
+      try {
+        const resultsTable = document.getElementById("results");
+        const tableBody = resultsTable.getElementsByTagName("tbody")[0];
+        const newRow = tableBody.insertRow();
+        const attemptNumberCell = newRow.insertCell();
+        const xCell = newRow.insertCell();
+        const yCell = newRow.insertCell();
+        const rCell = newRow.insertCell();
+        const resultCell = newRow.insertCell();
+        const attemptTimeCell = newRow.insertCell();
+        const processingTimeCell = newRow.insertCell();
+        let item2 = localStorage.getItem(
+          "1dd67bc30438cd" + i,
+          JSON.stringify(dataTable)
+        );
+        let objTable2 = JSON.parse(item2);
+        attemptNumberCell.innerHTML = objTable2["attemptNumber"];
+        xCell.innerHTML = objTable2["x"];
+        yCell.innerHTML = objTable2["y"];
+        rCell.innerHTML = objTable2["r"];
+        resultCell.innerHTML = objTable2["result"];
+        attemptTimeCell.innerHTML = objTable2["attemptTime"];
+        processingTimeCell.innerHTML = objTable2["processingTime"];
+      } catch (TypeError) {
+        console.log(":)");
+      }
+    }
+  }
   grapher = runGrapher();
 });
 
-let attemptsMade = 0;
-
 async function checkPoint() {
   const data = getData();
-  const dataTable = {};
 
   const errorMessage = validateData(data);
 
