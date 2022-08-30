@@ -1,10 +1,10 @@
 let grapher = null;
 let attemptsMade = 0;
 
-const resultEntriesCacheKey = 'result_entries';
-const getEntryCacheKey = function(index){
+const resultEntriesCacheKey = "result_entries";
+const getEntryCacheKey = function (index) {
   return `${resultEntriesCacheKey}[${index}]`;
-}
+};
 const rCacheKey = "R";
 const attemptsMadeCacheKey = "attemptsMade";
 
@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   loadDataFromLocalStorage();
 });
 
-
-function addEntry(entry){
+function addEntry(entry) {
   try {
     const resultsTable = document.getElementById("results");
     const tableBody = resultsTable.getElementsByTagName("tbody")[0];
@@ -26,7 +25,7 @@ function addEntry(entry){
     const resultCell = newRow.insertCell();
     const attemptTimeCell = newRow.insertCell();
     const processingTimeCell = newRow.insertCell();
-    
+
     attemptNumberCell.innerHTML = entry["attemptNumber"];
     xCell.innerHTML = entry.x;
     yCell.innerHTML = entry.y;
@@ -36,20 +35,19 @@ function addEntry(entry){
     processingTimeCell.innerHTML = entry["processingTime"];
     grapher.addPoint(Number(entry.x), Number(entry.y));
     grapher.drawGraph();
-    
   } catch (TypeError) {
     console.log(":)");
   }
 }
 
-function loadDataFromLocalStorage(){
+function loadDataFromLocalStorage() {
   const r = localStorage.getItem(rCacheKey);
-  if(r){
+  if (r) {
     setR(r);
   }
 
   const attemptsMadeCached = localStorage.getItem(attemptsMadeCacheKey);
-  if(attemptsMadeCached){
+  if (attemptsMadeCached) {
     attemptsMade = attemptsMadeCached;
   }
 
@@ -59,7 +57,7 @@ function loadDataFromLocalStorage(){
       const cachedEntry = JSON.parse(cachedEntryString);
       addEntry(cachedEntry);
     }
-  }
+  } 
 }
 
 async function checkPoint() {
@@ -73,7 +71,6 @@ async function checkPoint() {
   }
 
   const dataEntry = {};
-  
 
   dataEntry.x = data.x.toString();
 
@@ -95,7 +92,7 @@ async function checkPoint() {
   addEntry(dataEntry);
 
   localStorage.setItem(
-    getEntryCacheKey(dataEntry.attemptNumber-1),
+    getEntryCacheKey(dataEntry.attemptNumber - 1),
     JSON.stringify(dataEntry)
   );
 
@@ -188,10 +185,7 @@ let r = null;
 function setR(newValue, element) {
   r = newValue;
   setActiveButton("r", element);
-  localStorage.setItem(
-    rCacheKey,
-    newValue
-  );
+  localStorage.setItem(rCacheKey, newValue);
 }
 function getR() {
   return r;
