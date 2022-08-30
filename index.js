@@ -1,6 +1,5 @@
 let grapher = null;
 let attemptsMade = 0;
-
 const resultEntriesCacheKey = "result_entries";
 const getEntryCacheKey = function (index) {
   return `${resultEntriesCacheKey}[${index}]`;
@@ -11,8 +10,8 @@ const attemptsMadeCacheKey = "attemptsMade";
 document.addEventListener("DOMContentLoaded", function () {
   grapher = runGrapher();
   loadDataFromLocalStorage();
+  loadActiveRButton();
 });
-
 function addEntry(entry) {
   try {
     const resultsTable = document.getElementById("results");
@@ -57,9 +56,20 @@ function loadDataFromLocalStorage() {
       const cachedEntry = JSON.parse(cachedEntryString);
       addEntry(cachedEntry);
     }
-  } 
+  }
 }
 
+function loadActiveRButton() {
+  if (localStorage.getItem(rCacheKey) !== null) {
+    const rElement = document.getElementById("r");
+    const buttons = rElement.getElementsByTagName("button");
+    for (const button of buttons) {
+      if (Number(button.innerHTML) == Number(localStorage.getItem(rCacheKey))) {
+        button.className = "active";
+      }
+    }
+  }
+}
 async function checkPoint() {
   const data = getData();
 
