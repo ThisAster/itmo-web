@@ -1,6 +1,6 @@
 let grapher = null;
 let dataTable = {};
-let attemptsMade = localStorage.setItem("stor", 0);
+let attemptsMade = 0;
 
 
 
