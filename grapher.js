@@ -142,7 +142,6 @@ function runGrapher() {
 
     setX(xClicked);
     setY(yClicked);
-    /* TODO: need will add save points on graph after reload page */
     addPoint(xClicked, yClicked);
     points.push;
 
@@ -152,5 +151,6 @@ function runGrapher() {
   return {
     cleanPoints,
     drawGraph,
+    addPoint,
   };
 }
