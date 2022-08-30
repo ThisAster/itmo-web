@@ -115,6 +115,12 @@ function clean() {
   attemptsMade = 0;
   tableBody.innerHTML = "";
   localStorage.clear();
+  r = null;
+  const rElement = document.getElementById("r");
+  const buttons = rElement.getElementsByTagName("button");
+  for (const button of buttons) {
+    button.className = "";
+  }
   grapher.cleanPoints();
   grapher.drawGraph();
 }
