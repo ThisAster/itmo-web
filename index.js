@@ -1,9 +1,7 @@
 let grapher = null;
 let dataTable = {};
 let attemptsMade = 0;
-const resultsTable = document.getElementById("results");
-const tableBody = resultsTable.getElementsByTagName("tbody")[0];
-const newRow = tableBody.insertRow();
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Аналог $(document).ready(function(){
@@ -11,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     for (var i = 0; i < localStorage.length; i++) {
       try {
+        const resultsTable = document.getElementById("results");
+        const tableBody = resultsTable.getElementsByTagName("tbody")[0];
+        const newRow = tableBody.insertRow();
         const attemptNumberCell = newRow.insertCell();
         const xCell = newRow.insertCell();
         const yCell = newRow.insertCell();
@@ -48,6 +49,10 @@ async function checkPoint() {
     alert("Error: " + errorMessage);
     return;
   }
+
+  const resultsTable = document.getElementById("results");
+  const tableBody = resultsTable.getElementsByTagName("tbody")[0];
+  const newRow = tableBody.insertRow();
 
   dataTable.attemptNumber = attemptsMade;
 
