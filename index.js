@@ -1,10 +1,16 @@
 let grapher = null;
 let attemptsMade = 0;
-const cacheKey = "result_entry_";
+
+const resultEntriesCacheKey = 'result_entries';
+const getEntryCacheKey = function(index){
+  return `${resultEntriesCacheKey}[${index}]`;
+}
+const rCacheKey = "R";
+const attemptsMadeCacheKey = "attemptsMade";
 
 document.addEventListener("DOMContentLoaded", function () {
-  loadDataFromLocalStorage();
   grapher = runGrapher();
+  loadDataFromLocalStorage();
 });
 
 
@@ -20,26 +26,36 @@ function addEntry(entry){
     const resultCell = newRow.insertCell();
     const attemptTimeCell = newRow.insertCell();
     const processingTimeCell = newRow.insertCell();
-
     
     attemptNumberCell.innerHTML = entry["attemptNumber"];
-    xCell.innerHTML = entry["x"];
-    yCell.innerHTML = entry["y"];
+    xCell.innerHTML = entry.x;
+    yCell.innerHTML = entry.y;
     rCell.innerHTML = entry["r"];
     resultCell.innerHTML = entry["result"];
     attemptTimeCell.innerHTML = entry["attemptTime"];
     processingTimeCell.innerHTML = entry["processingTime"];
-    attemptsMade = Number(entry["attemptNumber"]) + 1;
+    grapher.addPoint(Number(entry.x), Number(entry.y));
+    grapher.drawGraph();
+    
   } catch (TypeError) {
     console.log(":)");
   }
 }
 
 function loadDataFromLocalStorage(){
-  if (localStorage.length == 0 && attemptsMade == 0) {
-  } else {
-    for (var i = 0; i < localStorage.length; i++) {
-      const cachedEntryString = localStorage.getItem(cacheKey + i);
+  const r = localStorage.getItem(rCacheKey);
+  if(r){
+    setR(r);
+  }
+
+  const attemptsMadeCached = localStorage.getItem(attemptsMadeCacheKey);
+  if(attemptsMadeCached){
+    attemptsMade = attemptsMadeCached;
+  }
+
+  if (attemptsMade) {
+    for (var i = 0; i < attemptsMade; i++) {
+      const cachedEntryString = localStorage.getItem(getEntryCacheKey(i));
       const cachedEntry = JSON.parse(cachedEntryString);
       addEntry(cachedEntry);
     }
@@ -56,12 +72,8 @@ async function checkPoint() {
     return;
   }
 
-  const resultsTable = document.getElementById("results");
-  const tableBody = resultsTable.getElementsByTagName("tbody")[0];
-  const newRow = tableBody.insertRow();
-
   const dataEntry = {};
-  dataEntry.attemptNumber = attemptsMade;
+  
 
   dataEntry.x = data.x.toString();
 
@@ -71,7 +83,7 @@ async function checkPoint() {
 
   const sendDate = new Date().getTime();
   const checkResult = await getCheckPointResult();
-
+  dataEntry.attemptNumber = attemptsMade;
   dataEntry.result = checkResult;
   const receiveDate = new Date().getTime();
 
@@ -83,9 +95,11 @@ async function checkPoint() {
   addEntry(dataEntry);
 
   localStorage.setItem(
-    cacheKey + localStorage.length,
+    getEntryCacheKey(dataEntry.attemptNumber-1),
     JSON.stringify(dataEntry)
   );
+
+  localStorage.setItem(attemptsMadeCacheKey, attemptsMade);
 }
 
 function clean() {
@@ -174,6 +188,10 @@ let r = null;
 function setR(newValue, element) {
   r = newValue;
   setActiveButton("r", element);
+  localStorage.setItem(
+    rCacheKey,
+    newValue
+  );
 }
 function getR() {
   return r;
