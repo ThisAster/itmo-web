@@ -32,7 +32,6 @@ function addEntry(entry) {
     resultCell.innerHTML = entry["result"];
     attemptTimeCell.innerHTML = entry["attemptTime"];
     processingTimeCell.innerHTML = entry["processingTime"];
-    grapher.addPoint(Number(entry.x), Number(entry.y));
     grapher.drawGraph();
   } catch (TypeError) {
     console.log(":)");
@@ -94,8 +93,15 @@ async function checkPoint() {
   dataEntry.result = checkResult;
   const receiveDate = new Date().getTime();
 
-  dataEntry.attemptTime = new Date().toISOString();
-
+  const notDateParsed = new Date();
+  const date = ('0' + notDateParsed.getDate()).slice(-2);
+  const month = ('0' + (notDateParsed.getMonth() + 1)).slice(-2);
+  const year = notDateParsed.getFullYear();
+  const hours = ('0' + notDateParsed.getHours()).slice(-2);
+  const minutes = ('0' + notDateParsed.getMinutes()).slice(-2);
+  const seconds = ('0' + notDateParsed.getSeconds()).slice(-2);
+  dataEntry.attemptTime = `${date}/${month}/${year}, ${hours}:${minutes}:${seconds}`
+  
   const responseTimeMs = receiveDate - sendDate;
   dataEntry.processingTime = responseTimeMs + " ms";
 
@@ -121,7 +127,6 @@ function clean() {
   for (const button of buttons) {
     button.className = "";
   }
-  grapher.cleanPoints();
   grapher.drawGraph();
 }
 

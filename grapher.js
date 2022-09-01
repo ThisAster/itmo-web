@@ -94,41 +94,6 @@ function runGrapher() {
   canvas.onmouseleave = drawGraph;
   //document.getElementById("form").onchange = drawGraph;
 
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-  }
-  const pointColors = [
-    "red",
-    "green",
-    "yellow",
-    "orange",
-    "#26D272",
-    "#AF33BF",
-    "#E31AA0",
-    "#960D3C",
-    "#D8E122",
-    "#A91E0E",
-    "#00FFD3",
-    "#7700FF",
-    "#780852",
-  ];
-  function addPoint(x, y) {
-    const colorIndex = getRandomInt(0, 13);
-    const color = pointColors[colorIndex];
-    const newPoint = {
-      x,
-      y,
-      color,
-    };
-    points.push(newPoint);
-  }
-
-  function cleanPoints() {
-    points.length = 0;
-  }
-
   canvas.onmousedown = (e) => {
     if (!r) {
       alert("Please select a value for R first");
@@ -142,15 +107,11 @@ function runGrapher() {
 
     setX(xClicked);
     setY(yClicked);
-    addPoint(xClicked, yClicked);
-    points.push;
 
     checkPoint();
   };
 
   return {
-    cleanPoints,
     drawGraph,
-    addPoint,
   };
 }
