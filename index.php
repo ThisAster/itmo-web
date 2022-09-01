@@ -10,7 +10,7 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Лабораторная работа №1 по веб-программированию</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.scss" />
   <script src="grapher.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/superagent@8.0.0/dist/superagent.min.js"></script>
   <!-- JavaScript Bundle with Popper -->
@@ -18,7 +18,7 @@ session_start();
   <script src="index.js"></script>
 </head>
 
-<body style="background-image: url(./static/r.png); background-size: cover; background-position: fixed; height: 100vh;">
+<body>
   <table>
     <tr>
       <td colspan="3">
@@ -80,7 +80,7 @@ session_start();
               </tr>
             </table>
           </div>
-          <div id="rBlock">
+          <div style="height: 115px" ;id="rBlock">
             <label id="labelR" for="r">R:</label>
             <table title="enter a value r" id="r">
               <tr>
