@@ -6,26 +6,26 @@ if (!(isset($_GET['x']) && isset($_GET['y']) && isset($_GET['r']))) {
     echo 'Not enough parameters';
     http_response_code(400);
     return;
-} 
+}
 
-if(!is_numeric($_GET['x'])){
+if (!is_numeric($_GET['x'])) {
     echo 'X is not a number';
     http_response_code(400);
     return;
 }
 
-if(!is_numeric($_GET['y'])){
+if (!is_numeric($_GET['y'])) {
     echo 'Y is not a number';
     http_response_code(400);
     return;
 }
 
-if(!is_numeric($_GET['r'])){
+if (!is_numeric($_GET['r'])) {
     echo 'R is not a number';
     http_response_code(400);
     return;
 }
- 
+
 $x = floatval($_GET['x']);
 $y = floatval($_GET['y']);
 $r = floatval($_GET['r']);
