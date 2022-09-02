@@ -1,44 +1,45 @@
-body > table td {
-  vertical-align: top;
-}
+$color1: #5bc9e1;
+$color2: #d0ecf4;
 
 body {
   background-image: url(static/r.png);
-  background-position: center center;
-  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
   background-color: #464646;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  & > table td {
+    vertical-align: top;
+  }
+
+  > table,
+  > table > tr,
+  > table > tr > td {
+    display: block;
+  }
 }
 
-table button {
-  width: 50px;
-  background: -moz-linear-gradient(#d0ecf4, #5bc9e1, #d0ecf4);
-  background: -webkit-gradient(
-    linear,
-    0 0,
-    0 100%,
-    from(#d0ecf4),
-    to(#d0ecf4),
-    color-stop(0.5, #5bc9e1)
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
-  border-radius: 5px;
-  padding: 5px 12px;
-  height: 30px;
-}
-
-label[for="y"] {
-  display: inline-block;
-  margin-top: 10px;
-  font-family: Roboto sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.75);
+table {
+  button {
+    width: 50px;
+    background: -moz-linear-gradient($color2, $color1, $color2);
+    background: -webkit-gradient(
+      linear,
+      0 0,
+      0 100%,
+      from($color2),
+      to($color2),
+      color-stop(0.5, $color1)
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    border-radius: 5px;
+    padding: 5px 12px;
+    height: 30px;
+  }
 }
 
 div {
-  > label {
+  & > label {
     display: inline-block;
     font-family: Roboto sans-serif;
     font-size: 22px;
@@ -50,32 +51,60 @@ div {
 #parameters {
   padding: 40px;
   width: 175px;
-}
 
-#x {
-  background: -moz-linear-gradient(#d0ecf4, #5bc9e1, #d0ecf4);
-  background: -webkit-gradient(
-    linear,
-    0 0,
-    0 100%,
-    from(#d0ecf4),
-    to(#d0ecf4),
-    color-stop(0.5, #5bc9e1)
-  );
-  filter: $filter;
-  border: 2px solid;
-  border-radius: 10px;
-  padding: 10px;
-  width: 138px;
-}
+  #x {
+    background: -moz-linear-gradient($color2, $color1, $color2);
+    background: -webkit-gradient(
+      linear,
+      0 0,
+      0 100%,
+      from($color2),
+      to($color2),
+      color-stop(0.5, $color1)
+    );
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+    width: 138px;
+  }
 
-label[for="r"] {
-  display: inline-block;
-  margin-top: 10px;
-  font-family: Roboto sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.75);
+  label[for="y"] {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: Roboto sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  label[for="r"] {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: Roboto sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  .actionButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -moz-linear-gradient($color2, $color1, $color2);
+    background: -webkit-gradient(
+      linear,
+      0 0,
+      0 100%,
+      from($color2),
+      to($color2),
+      color-stop(0.5, $color1)
+    );
+
+    border-radius: 5px;
+    padding: 5px 12px;
+    width: 160px;
+    margin-top: 10px;
+  }
 }
 
 td {
@@ -84,50 +113,22 @@ td {
   }
 }
 
-.actionButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: -moz-linear-gradient(#d0ecf4, #5bc9e1, #d0ecf4);
-  background: -webkit-gradient(
-    linear,
-    0 0,
-    0 100%,
-    from(#d0ecf4),
-    to(#d0ecf4),
-    color-stop(0.5, #5bc9e1)
-  );
-
-  border-radius: 5px;
-  padding: 5px 12px;
-  width: 160px;
-  margin-top: 10px;
-}
-
 #results {
   padding: 1%;
   margin-left: 100px;
   border-collapse: collapse;
   background-color: #ffffffcc;
-}
 
-#results th {
-  border: solid 1px black;
-  width: 82px;
-  height: 50px;
-}
+  th {
+    border: solid 1px black;
+    width: 82px;
+    height: 50px;
+  }
 
-#results td {
-  border: solid 1px black;
-  text-align: center;
-}
-
-.active {
-  border: green 3px solid;
-}
-
-:root {
-  font-size: 14px;
+  td {
+    border: solid 1px black;
+    text-align: center;
+  }
 }
 
 header {
@@ -135,161 +136,56 @@ header {
   color: #393949;
   background-color: var(--secondary-background-color);
   overflow: hidden;
-}
 
-header h2::after {
-  color: transparent;
-  content: " | ITMO, Saint-Petersburg 2022";
-  transition-property: color;
-  transition-duration: 0.5s;
-}
-
-header:hover h1,
-header:hover h2 {
-  transform: translateX(50px);
-}
-
-header h1 {
-  font-size: 40px;
-  transition-property: transform;
-  transition-duration: 0.5s;
-}
-
-header h2 {
-  font-size: 35px;
-  transition-duration: 0.3s;
-}
-
-table button {
-  width: 50px;
-  background: -moz-linear-gradient(#d0ecf4, #5bc9e1, #d0ecf4);
-  background: -webkit-gradient(
-    linear,
-    0 0,
-    0 100%,
-    from(#d0ecf4),
-    to(#d0ecf4),
-    color-stop(0.5, #5bc9e1)
-  );
-  border-radius: 5px;
-  padding: 5px 12px;
-}
-
-label[for="y"] {
-  display: inline-block;
-  margin-top: 10px;
-  font-family: Roboto sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.75);
-}
-
-div > label {
-  display: inline-block;
-  font-family: Roboto sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.75);
-}
-#parameters {
-  padding: 40px;
-  width: 175px;
-}
-#x {
-  background: -moz-linear-gradient(#d0ecf4, #5bc9e1, #d0ecf4);
-  background: -webkit-gradient(
-    linear,
-    0 0,
-    0 100%,
-    from(#d0ecf4),
-    to(#d0ecf4),
-    color-stop(0.5, #5bc9e1)
-  );
-  border: 2px solid;
-  border-radius: 10px;
-  padding: 10px;
-  width: 138px;
-}
-label[for="r"] {
-  display: inline-block;
-  margin-top: 10px;
-  font-family: Roboto sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.75);
-}
-
-td > canvas {
-  display: flex;
-}
-.actionButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: -moz-linear-gradient(#d0ecf4, #5bc9e1, #d0ecf4);
-  background: -webkit-gradient(
-    linear,
-    0 0,
-    0 100%,
-    from(#d0ecf4),
-    to(#d0ecf4),
-    color-stop(0.5, #5bc9e1)
-  );
-  border-radius: 5px;
-  padding: 5px 12px;
-  width: 160px;
-  margin-top: 10px;
-}
-body {
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  > table,
-  > table > tr,
-  > table > tr > td {
-    display: block;
-  }
-}
-
-#results {
-  padding: 1%;
-  margin-left: 100px;
-  border-collapse: collapse;
-  background-color: #ffffffcc;
-  th {
-    border: solid 1px black;
-    width: 82px;
-    height: 50px;
-  }
-  td {
-    border: solid 1px black;
-    text-align: center;
-  }
-}
-
-.active {
-  border: green 3px solid;
-}
-
-:root {
-  font-size: 14px;
-}
-
-header {
-  font-family: sans-serif;
-  color: #393949;
-  overflow: hidden;
   h2::after {
     color: transparent;
     content: " | ITMO, Saint-Petersburg 2022";
     transition-property: color;
     transition-duration: 0.5s;
   }
-  &:hover h1,
+
+  &:hover {
+    h1,
+    h2 {
+      transform: translateX(50px);
+    }
+  }
+
+  h1 {
+    font-size: 40px;
+    transition-property: transform;
+    transition-duration: 0.5s;
+  }
+
   h2 {
-    transform: translateX(50px);
+    font-size: 35px;
+    transition-duration: 0.3s;
   }
 }
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: -moz-linear-gradient($color2, $color1, $color2);
+  background: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    from($color2),
+    to($color2),
+    color-stop(0.5, $color1)
+  );
+  border-radius: 5px;
+  padding: 5px 12px;
+  width: 160px;
+  margin-top: 10px;
+}
+
+.active {
+  border: green 3px solid;
+}
+
 .cat {
   margin-left: 50%;
   position: fixed;
