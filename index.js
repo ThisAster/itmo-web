@@ -231,7 +231,7 @@ async function getCheckPointResult() {
 
   try {
     attemptsMade++;
-    const res = await superagent.get("/check_point.php").query({
+    const res = await superagent.get("check_point.php").query({
       x: getX(),
       y: y,
       r: r,
