@@ -1,5 +1,5 @@
 ﻿# Лабораторная работа №1
-## Check out this site live: [here](https://itmoweblab1.herokuapp.com/)!
+## Check out this site live: [here](https://se.ifmo.ru/~s338879/index.php)!
 ## Вариант: 3201
 ![Task graph](/static/task_graph_with_params.png)
 
